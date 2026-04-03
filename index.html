@@ -176,6 +176,9 @@
                     <button onclick="scrollToSection('menu')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
                         Cucina
                     </button>
+                    <button onclick="scrollToSection('menu-completo')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
+                        Menu Completo
+                    </button>
                     <button onclick="scrollToSection('reviews')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
                         Recensioni
                     </button>
@@ -206,6 +209,9 @@
                 </button>
                 <button onclick="scrollToSection('menu')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
                     Cucina
+                </button>
+                <button onclick="scrollToSection('menu-completo')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
+                    Menu Completo
                 </button>
                 <button onclick="scrollToSection('reviews')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
                     Recensioni
@@ -578,9 +584,191 @@
 
             <!-- CTA -->
             <div class="text-center">
-                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2 mb-4">
                     <span>📅</span>
                     Prenota il Tuo Tavolo Ora
+                </a>
+                <br>
+                <button onclick="scrollToSection('menu-completo')" class="btn-outline-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                    <span>📋</span>
+                    Vedi Menu Completo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Completo Section -->
+    <section id="menu-completo" style="background: #F8F4EC; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <p style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    Menu completo
+                </p>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem); color: #0D1B2A; line-height: 1.1;">
+                    Tutti i Nostri Piatti
+                </h2>
+                <div class="gold-divider" style="background: linear-gradient(90deg, #D4A853, transparent);"></div>
+                <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                    Scopri l'intera offerta culinaria del Ristorante Alleria, dalle specialità di pesce fresco ai dolci fatti in casa.
+                </p>
+            </div>
+
+            <!-- Antipasti -->
+            <div class="mb-16">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2rem; color: #0D1B2A; margin-bottom: 2rem; text-align: center;">
+                    Antipasti
+                </h3>
+                <div class="space-y-4">
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Cruditè di Pesce
+                            </h4>
+                            <span class="price-tag">€18</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Gamberi rossi di Mazara, scampi, carpaccio di branzino e salmone affumicato con agrumi
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Frittura Mista
+                            </h4>
+                            <span class="price-tag">€16</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Calamari, gamberi e sardine fritte con pastella leggera, servite con salsa tartara
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                            </h4>
+                            <span class="price-tag">€14</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Cozze e vongole al sugo con pomodorini, aglio e prezzemolo
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primi -->
+            <div class="mb-16">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2rem; color: #0D1B2A; margin-bottom: 2rem; text-align: center;">
+                    Primi Piatti
+                </h3>
+                <div class="space-y-4">
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Spaghetti alle Vongole
+                            </h4>
+                            <span class="price-tag">€19</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Spaghetti con vongole fresche, pomodorini, aglio, olio extravergine e peperoncino
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Risotto alla Pescatora
+                            </h4>
+                            <span class="price-tag">€21</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Risotto mantecato con misto di pesce, frutti di mare e zafferano
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Tagliatelle al Salmone
+                            </h4>
+                            <span class="price-tag">€18</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Tagliatelle fresche con salmone affumicato, panna e aneto
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondi -->
+            <div class="mb-16">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2rem; color: #0D1B2A; margin-bottom: 2rem; text-align: center;">
+                    Secondi Piatti
+                </h3>
+                <div class="space-y-4">
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Branzino alla Griglia
+                            </h4>
+                            <span class="price-tag">€28</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Branzino fresco del giorno grigliato con patate al forno e verdure di stagione
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                            </h4>
+                            <span class="price-tag">€26</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Orata al forno con pomodorini, olive, capperi e patate aromatiche
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dolci -->
+            <div class="mb-16">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2rem; color: #0D1B2A; margin-bottom: 2rem; text-align: center;">
+                    Dolci
+                </h3>
+                <div class="space-y-4">
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Tiramisù
+                            </h4>
+                            <span class="price-tag">€8</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Tiramisù tradizionale con savoiardi, mascarpone e caffè
+                        </p>
+                    </div>
+
+                    <div class="menu-item p-6 rounded-2xl" style="background: rgba(13, 27, 42, 0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #0D1B2A;">
+                                Panna Cotta
+                            </h4>
+                            <span class="price-tag">€7</span>
+                        </div>
+                        <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; line-height: 1.6;">
+                            Panna cotta con coulis di frutti di bosco
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                    <span>📅</span>
+                    Prenota il Tuo Tavolo
                 </a>
             </div>
         </div>
@@ -600,16 +788,17 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Map placeholder -->
-                <div class="rounded-2xl overflow-hidden" style="height: 400px; background: linear-gradient(135deg, #0D1B2A, #4A9BAD); display: flex; align-items: center; justify-content: center;">
-                    <div class="text-center text-white">
-                        <div style="font-size: 48px; margin-bottom: 1rem;">📍</div>
-                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem;">Ristorante Alleria</h3>
-                        <p style="margin-bottom: 1.5rem;">Sirmione, Lago di Garda</p>
-                        <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-6 py-3 rounded-full text-sm">
-                            Apri in Google Maps
-                        </a>
-                    </div>
+                <!-- Map -->
+                <div class="rounded-2xl overflow-hidden" style="height: 400px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.123456789!2d10.6066305!3d45.4813357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781ebf18ec574bb:0xc75716522752595e!2sRistorante+Alleria!5e0!3m2!1sit!2sit!4v1234567890"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
 
                 <!-- Contact info -->
@@ -623,7 +812,7 @@
                             <span style="color: #D4A853; font-size: 20px;">📍</span>
                             <div>
                                 <div style="color: #0D1B2A; font-weight: 600; margin-bottom: 0.25rem;">Indirizzo</div>
-                                <div style="color: #3D3D3D;">Ristorante Alleria, Sirmione (BS)</div>
+                                <div style="color: #3D3D3D;">Via XXV Aprile, 51, 25019 Sirmione BS</div>
                             </div>
                         </div>
 
