@@ -1,821 +1,818 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ristorante Alleria — Sirmione sul Lago di Garda</title>
-  <meta name="description" content="Vivi un'esperienza indimenticabile sul lago a Sirmione. Pesce fresco, cucina italiana autentica e atmosfera romantica direttamente sul Lago di Garda." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-/* ═══════════════════════════════════════════
-   ALLERIA RISTORANTE — COMPLETE STYLES v2
-   ═══════════════════════════════════════════ */
-
-:root {
-  --cream: #FAF6EF;
-  --cream-dark: #F0E8D8;
-  --gold: #C9A84C;
-  --gold-light: #E2C97E;
-  --gold-dark: #A8862F;
-  --navy: #1A2035;
-  --navy-light: #243050;
-  --charcoal: #2C2C2C;
-  --text: #3A3228;
-  --text-muted: #7A6E63;
-  --white: #FFFFFF;
-  --border: rgba(201,168,76,0.2);
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Jost', sans-serif;
-  --radius: 4px;
-  --radius-lg: 12px;
-  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
-  --shadow: 0 8px 40px rgba(26,32,53,0.12);
-  --shadow-lg: 0 20px 60px rgba(26,32,53,0.2);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-img { display: block; max-width: 100%; height: auto; }
-a { text-decoration: none; color: inherit; }
-button { font-family: var(--font-body); }
-
-/* ── TYPOGRAPHY ── */
-.section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
-.section-label.light { color: var(--gold-light); }
-.section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 300; line-height: 1.15; color: var(--charcoal); margin-bottom: 1.75rem; }
-.section-title em { font-style: italic; color: var(--gold-dark); }
-.section-title.light { color: var(--white); }
-.section-title.light em { color: var(--gold-light); }
-
-/* ── BUTTONS ── */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem 2rem; font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); cursor: pointer; border: none; transition: all var(--transition); text-decoration: none; white-space: nowrap; }
-.btn-gold { background: var(--gold); color: var(--navy); }
-.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
-.btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
-.btn-outline:hover { background: var(--navy); color: var(--cream); }
-.btn-header { background: var(--gold); color: var(--navy); padding: 0.55rem 1.3rem; font-size: 0.75rem; }
-.btn-header:hover { background: var(--gold-light); }
-.btn-thefork { background: #00B551; color: var(--white); }
-.btn-thefork:hover { background: #009941; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,181,81,0.35); }
-.btn-full { width: 100%; }
-.w-full { width: 100%; }
-.cta-center { text-align: center; margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
-
-/* ── LAYOUT ── */
-.section-inner { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
-
-/* ── REVEAL ANIMATIONS ── */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
-
-/* ══════════════════════════════════════
-   HEADER
-══════════════════════════════════════ */
-.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background var(--transition), box-shadow var(--transition); }
-.site-header.scrolled { background: rgba(250,246,239,0.97); backdrop-filter: blur(12px); box-shadow: 0 1px 20px rgba(0,0,0,0.08); }
-.header-inner { max-width: 1180px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
-.logo { display: flex; flex-direction: column; }
-.logo-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--white); letter-spacing: 0.04em; line-height: 1; transition: color var(--transition); }
-.site-header.scrolled .logo-name { color: var(--charcoal); }
-.logo-sub { font-size: 0.58rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); line-height: 1.4; }
-.header-nav { display: flex; gap: 2rem; margin-left: auto; }
-.header-nav a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.88); transition: color var(--transition); }
-.site-header.scrolled .header-nav a { color: var(--charcoal); }
-.header-nav a:hover { color: var(--gold); }
-.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; margin-left: auto; min-width: 30px; }
-.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all var(--transition); }
-.site-header.scrolled .hamburger span { background: var(--charcoal); }
-.mobile-nav { display: none; flex-direction: column; gap: 0; background: var(--cream); border-top: 1px solid var(--border); }
-.mobile-nav.open { display: flex; }
-.mob-link { font-size: 0.85rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); padding: 1rem 2rem; border-bottom: 1px solid var(--border); transition: color var(--transition); }
-.mob-link:hover { color: var(--gold-dark); }
-.mobile-nav .btn { margin: 1rem 2rem 1.5rem; }
-
-/* ══════════════════════════════════════
-   HERO — FIXED IMAGE APPROACH
-══════════════════════════════════════ */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; overflow: hidden; }
-
-/* Image wrapper — no parallax transform on mobile */
-.hero-bg-wrap { position: absolute; inset: 0; overflow: hidden; }
-.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,18,40,0.55) 0%, rgba(10,18,40,0.3) 50%, rgba(10,18,40,0.75) 100%); }
-.hero-gradient-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(10,18,40,0.85), transparent); }
-
-.hero-content { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; padding: 9rem 2rem 6rem; width: 100%; }
-.hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
-
-/* Big brand name in hero */
-.hero-brand { margin-bottom: 1.5rem; }
-.hero-brand-name { font-family: var(--font-display); font-size: clamp(4.5rem, 14vw, 9rem); font-weight: 300; line-height: 0.9; color: var(--white); letter-spacing: -0.01em; }
-.hero-brand-tag { font-family: var(--font-body); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-light); margin-top: 0.5rem; }
-
-.hero-headline { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; color: rgba(255,255,255,0.92); margin-bottom: 1.25rem; max-width: 560px; }
-.hero-headline em { font-style: italic; color: var(--gold-light); }
-.hero-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 2rem; max-width: 480px; }
-.br-desk { display: block; }
-
-.hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
-.pill { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.9rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; color: rgba(255,255,255,0.88); font-size: 0.75rem; font-weight: 400; backdrop-filter: blur(8px); }
-
-.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 2; }
-.hero-scroll span { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent); animation: scrollPulse 2s ease-in-out infinite; }
-@keyframes scrollPulse { 0%,100% { opacity:0.5; transform:scaleY(1); } 50% { opacity:1; transform:scaleY(0.5); } }
-
-/* ══════════════════════════════════════
-   PROOF BAR
-══════════════════════════════════════ */
-.proof-bar { background: var(--navy); padding: 1.2rem 2rem; }
-.proof-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
-.proof-item { display: flex; align-items: center; gap: 0.7rem; }
-.proof-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
-.proof-trophy { font-size: 1rem; }
-.proof-text { font-size: 0.78rem; font-weight: 400; color: rgba(255,255,255,0.78); letter-spacing: 0.06em; }
-.proof-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.15); }
-
-/* ══════════════════════════════════════
-   REVIEWS
-══════════════════════════════════════ */
-.reviews { padding: 6rem 0; background: var(--cream); }
-.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
-.review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; position: relative; transition: transform var(--transition), box-shadow var(--transition); }
-.review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-.review-card::before { content: '"'; font-family: var(--font-display); font-size: 5rem; color: var(--gold-light); opacity: 0.25; position: absolute; top: 0.25rem; right: 1.25rem; line-height: 1; pointer-events: none; }
-.review-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.85rem; }
-.review-text { font-family: var(--font-display); font-size: 1rem; font-style: italic; font-weight: 300; line-height: 1.65; color: var(--charcoal); margin-bottom: 1.25rem; }
-.review-author { display: flex; align-items: center; gap: 0.7rem; }
-.review-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 0.82rem; flex-shrink: 0; }
-.review-author strong { display: block; font-size: 0.82rem; font-weight: 500; color: var(--charcoal); }
-.review-author span { font-size: 0.72rem; color: var(--text-muted); }
-
-/* ══════════════════════════════════════
-   FOTO SECTION
-══════════════════════════════════════ */
-.foto-section { padding: 6rem 0 3rem; background: var(--navy); background-image: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%); }
-.foto-section .section-inner { margin-bottom: 2.5rem; }
-
-.foto-mosaic { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 8px; max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
-.foto-item { position: relative; overflow: hidden; border-radius: 8px; background: var(--navy-light); }
-.foto-tall { grid-row: span 2; }
-.foto-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-.foto-item:hover img { transform: scale(1.05); }
-.foto-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.25rem 0.85rem; background: linear-gradient(to top, rgba(10,18,40,0.85), transparent); color: var(--white); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; }
-
-.exp-chips-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 1180px; margin: 2.5rem auto 0; padding: 0 2rem 3rem; }
-.exp-chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.4rem; border: 1px solid rgba(201,168,76,0.25); border-radius: 100px; color: rgba(255,255,255,0.82); font-size: 0.83rem; font-weight: 300; background: rgba(255,255,255,0.04); }
-.exp-chip span { font-size: 1rem; }
-
-/* ══════════════════════════════════════
-   MENU
-══════════════════════════════════════ */
-.menu-section { padding: 6rem 0; background: var(--cream); }
-
-.menu-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0; }
-.tab-btn { background: none; border: none; padding: 0.7rem 1.25rem; font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all var(--transition); margin-bottom: -1px; border-radius: 4px 4px 0 0; }
-.tab-btn:hover { color: var(--charcoal); }
-.tab-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
-
-.menu-panel { display: none; }
-.menu-panel.active { display: block; }
-
-.menu-items-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; }
-.menu-items-grid.small { gap: 0; }
-.menu-item { padding: 1rem 0; border-bottom: 1px solid rgba(201,168,76,0.12); }
-.menu-item.small { padding: 0.6rem 0; }
-.menu-item-header { display: flex; align-items: baseline; gap: 0.5rem; }
-.menu-item-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--charcoal); flex-shrink: 0; }
-.menu-item.small .menu-item-name { font-size: 0.9rem; }
-.menu-item-line { flex: 1; border-bottom: 1px dotted rgba(201,168,76,0.3); margin: 0 0.5rem 3px; min-width: 10px; }
-.menu-item-price { font-size: 0.82rem; font-weight: 500; color: var(--gold-dark); white-space: nowrap; flex-shrink: 0; }
-.menu-item-desc { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
-.menu-subsection { margin-top: 2.5rem; }
-.menu-subsection h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); letter-spacing: 0.03em; }
-
-/* ══════════════════════════════════════
-   LEAD / BOOKING
-══════════════════════════════════════ */
-.lead-section { padding: 6rem 0; background: var(--navy); background-image: radial-gradient(ellipse at 0% 100%, rgba(201,168,76,0.08) 0%, transparent 50%); }
-.lead-inner { max-width: 1180px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.lead-sub { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1.75rem; }
-.lead-perks { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.lead-perks li { font-size: 0.84rem; font-weight: 400; color: rgba(255,255,255,0.72); }
-
-.lead-form { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-lg); }
-.form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-input, select, textarea { width: 100%; padding: 0.7rem 0.9rem; font-family: var(--font-body); font-size: 0.9rem; font-weight: 300; color: var(--charcoal); background: var(--cream); border: 1.5px solid var(--cream-dark); border-radius: var(--radius); outline: none; transition: border-color var(--transition), box-shadow var(--transition); -webkit-appearance: none; appearance: none; }
-input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); background: var(--white); }
-textarea { resize: vertical; min-height: 75px; }
-.form-note { text-align: center; font-size: 0.76rem; color: var(--text-muted); margin-top: 0.9rem; }
-.form-note a { color: var(--gold-dark); text-decoration: underline; }
-.form-success { display: none; text-align: center; padding: 2.5rem 1.5rem; }
-.form-success.show { display: block; }
-.success-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: var(--navy); font-size: 1.4rem; font-weight: 600; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
-.form-success h3 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.6rem; }
-.form-success p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
-
-/* ══════════════════════════════════════
-   LOCATION
-══════════════════════════════════════ */
-.location-section { padding: 6rem 0; background: var(--cream-dark); }
-.loc-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3.5rem; margin-top: 2.5rem; align-items: start; }
-.loc-info { display: flex; flex-direction: column; gap: 1.5rem; }
-.loc-item { display: flex; gap: 0.9rem; align-items: flex-start; }
-.loc-icon { font-size: 1.3rem; min-width: 32px; margin-top: 1px; }
-.loc-item strong { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.3rem; }
-.loc-item p, .loc-item a { font-size: 0.88rem; font-weight: 300; color: var(--text); line-height: 1.65; }
-.loc-item a { transition: color var(--transition); }
-.loc-item a:hover { color: var(--gold-dark); }
-.whatsapp-inline { display: inline-flex; align-items: center; gap: 0.4rem; color: #25D366 !important; font-weight: 500; }
-.whatsapp-inline:hover { color: #1eab53 !important; }
-.loc-map { border-radius: var(--radius-lg); overflow: hidden; height: 400px; border: 1px solid var(--border); box-shadow: var(--shadow); }
-.loc-map iframe { width: 100%; height: 100%; display: block; }
-
-/* ══════════════════════════════════════
-   FINAL CTA
-══════════════════════════════════════ */
-.final-cta { padding: 7rem 2rem; background: var(--navy); background-image: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 60%); text-align: center; }
-.final-inner { max-width: 600px; margin: 0 auto; }
-.final-sub { font-size: 0.98rem; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.7; }
-
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
-.site-footer { background: #12182a; padding: 2.5rem 2rem; }
-.footer-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
-.footer-logo .logo-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--white); }
-.footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; justify-content: center; }
-.footer-links a { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); transition: color var(--transition); }
-.footer-links a:hover { color: var(--gold-light); }
-.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
-
-/* ══════════════════════════════════════
-   WHATSAPP FLOAT
-══════════════════════════════════════ */
-.whatsapp-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 999; width: 52px; height: 52px; border-radius: 50%; background: #25D366; color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.45); transition: transform var(--transition), box-shadow var(--transition); }
-.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
-
-/* ══════════════════════════════════════
-   RESPONSIVE — TABLET
-══════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .lead-inner { gap: 3rem; }
-  .foto-mosaic { grid-template-rows: 220px 220px; }
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE — MOBILE
-══════════════════════════════════════ */
-@media (max-width: 840px) {
-  /* Header */
-  .header-nav { display: none; }
-  .btn-header { display: none; }
-  .hamburger { display: flex; }
-
-  /* Hero */
-  .hero-content { padding: 7rem 1.5rem 5rem; }
-  .hero-brand-name { font-size: clamp(3.5rem, 18vw, 6rem); }
-  .hero-sub { font-size: 0.9rem; }
-  .br-desk { display: none; }
-  .hero-pills { gap: 0.5rem; }
-  .pill { font-size: 0.7rem; padding: 0.35rem 0.75rem; }
-
-  /* Reviews */
-  .reviews { padding: 4.5rem 0; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .cta-center { flex-direction: column; align-items: center; }
-  .cta-center .btn { width: 100%; max-width: 320px; }
-
-  /* Foto mosaic */
-  .foto-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; padding: 0 1.5rem; }
-  .foto-tall { grid-row: span 1; }
-  .foto-item:last-child { grid-column: span 2; }
-
-  /* Menu */
-  .menu-section { padding: 4.5rem 0; }
-  .menu-items-grid { grid-template-columns: 1fr; }
-  .menu-tabs { gap: 0.35rem; }
-  .tab-btn { padding: 0.6rem 0.9rem; font-size: 0.72rem; }
-
-  /* Booking */
-  .lead-section { padding: 4.5rem 0; }
-  .lead-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .form-row { grid-template-columns: 1fr; }
-
-  /* Location */
-  .location-section { padding: 4.5rem 0; }
-  .loc-grid { grid-template-columns: 1fr; }
-  .loc-map { height: 280px; }
-
-  /* Chips */
-  .exp-chips-row { gap: 0.75rem; padding: 0 1.5rem 2.5rem; }
-  .exp-chip { font-size: 0.78rem; }
-
-  /* Section inner */
-  .section-inner { padding: 0 1.5rem; }
-
-  /* Final CTA */
-  .final-cta { padding: 5rem 1.5rem; }
-
-  /* WhatsApp */
-  .whatsapp-float { bottom: 1.25rem; right: 1.25rem; width: 46px; height: 46px; }
-}
-
-@media (max-width: 480px) {
-  .hero-brand-name { font-size: clamp(3rem, 20vw, 4.5rem); }
-  .hero-headline { font-size: 1.4rem; }
-  .lead-form { padding: 1.5rem; }
-  .foto-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .foto-item { height: 220px; }
-  .foto-item:last-child { grid-column: span 1; }
-  .proof-inner { gap: 1rem; flex-direction: column; }
-  .proof-divider { display: none; }
-  .menu-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .menu-tabs::-webkit-scrollbar { display: none; }
-  .tab-btn { white-space: nowrap; }
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ristorante Alleria – Cena sul Lago di Garda, Sirmione</title>
+    <meta name="description" content="Ristorante Alleria a Sirmione: cucina di pesce fresco con vista panoramica sul Lago di Garda. Atmosfera romantica, sapori autentici italiani. Prenota il tuo tavolo.">
+    <meta name="keywords" content="ristorante Sirmione, pesce Lago di Garda, cena romantica, ristorante vista lago, Alleria Sirmione">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ristorante Alleria – Cena sul Lago di Garda">
+    <meta property="og:description" content="Pesce fresco, viste romantiche e momenti indimenticabili a Sirmione.">
+    <meta property="og:type" content="restaurant">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --navy: #0D1B2A;
+            --gold: #D4A853;
+            --pearl: #F8F4EC;
+            --teal: #4A9BAD;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background: var(--navy);
+            color: var(--pearl);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #A8843F);
+            color: var(--navy);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 168, 83, 0.4);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        
+        .gold-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1.5rem auto;
+        }
+        
+        .review-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212, 168, 83, 0.15);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            color: var(--pearl);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: rgba(248, 244, 236, 0.5);
+        }
+        
+        .animate-pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(212, 168, 83, 0.6); }
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Image hover effects */
+        .dish-card img {
+            transition: transform 0.7s ease;
+        }
+        
+        .dish-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent; backdrop-filter: none; border-bottom: none; box-shadow: none;">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background: linear-gradient(135deg, #D4A853, #A8843F); color: #0D1B2A; font-family: 'Cormorant Garamond', serif; font-size: 16px;">
+                        RA
+                    </div>
+                    <div>
+                        <div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 18px; color: #F8F4EC; line-height: 1;">
+                            Alleria
+                        </div>
+                        <div style="font-size: 10px; color: #D4A853; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Nunito Sans', sans-serif;">
+                            Sirmione
+                        </div>
+                    </div>
+                </div>
 
-  <!-- STICKY HEADER -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-name">Alleria</span>
-        <span class="logo-sub">Ristorante · Sirmione</span>
-      </div>
-      <nav class="header-nav">
-        <a href="#recensioni">Recensioni</a>
-        <a href="#menu">Menu</a>
-        <a href="#location">Location</a>
-      </nav>
-      <a href="#prenota" class="btn btn-header">Prenota il tavolo</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-nav" id="mobile-nav">
-      <a href="#recensioni" class="mob-link">Recensioni</a>
-      <a href="#menu" class="mob-link">Menu</a>
-      <a href="#location" class="mob-link">Location</a>
-      <a href="#prenota" class="btn btn-gold w-full">Prenota il tavolo</a>
-    </div>
-  </header>
+                <!-- Desktop nav links -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <button onclick="scrollToSection('experience')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
+                        Il Ristorante
+                    </button>
+                    <button onclick="scrollToSection('menu')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
+                        Cucina
+                    </button>
+                    <button onclick="scrollToSection('reviews')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
+                        Recensioni
+                    </button>
+                    <button onclick="scrollToSection('location')" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.05em; background: none; border: none; transition: color 0.3s; cursor: pointer;">
+                        Dove Siamo
+                    </button>
+                </div>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-bg-wrap">
-      <img src="images/terrazza.jpg" class="hero-img" alt="Terrazza Ristorante Alleria sul Lago di Garda" />
-      <div class="hero-overlay"></div>
-      <div class="hero-gradient-bottom"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal">Sirmione · Lago di Garda</p>
-      <div class="hero-brand reveal delay-1">
-        <h1 class="hero-brand-name">Alleria</h1>
-        <p class="hero-brand-tag">Ristorante</p>
-      </div>
-      <h2 class="hero-headline reveal delay-2">
-        Vivi un'esperienza<br /><em>indimenticabile</em><br />sul lago
-      </h2>
-      <p class="hero-sub reveal delay-3">
-        Pesce fresco, cucina italiana autentica e un'atmosfera romantica<br class="br-desk" />
-        direttamente sul Lago di Garda
-      </p>
-      <div class="hero-pills reveal delay-4">
-        <span class="pill">🌅 Terrazza vista lago</span>
-        <span class="pill">🐟 Ingredienti freschi</span>
-        <span class="pill">✨ Servizio attento</span>
-      </div>
-      <a href="#prenota" class="btn btn-gold reveal delay-5">
-        Prenota il tuo tavolo
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <div class="hero-scroll">
-      <span>Scopri di più</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+                <!-- CTA button -->
+                <div class="hidden lg:block">
+                    <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-6 py-2.5 rounded-full text-sm">
+                        Prenota Ora
+                    </a>
+                </div>
 
-  <!-- PROOF BAR -->
-  <section class="proof-bar">
-    <div class="proof-inner">
-      <div class="proof-item">
-        <span class="proof-stars">★★★★★</span>
-        <span class="proof-text">4.5 su TripAdvisor</span>
-      </div>
-      <div class="proof-divider"></div>
-      <div class="proof-item">
-        <span class="proof-trophy">🏆</span>
-        <span class="proof-text">Travellers' Choice Award</span>
-      </div>
-      <div class="proof-divider"></div>
-      <div class="proof-item">
-        <span class="proof-text">Amato da centinaia di ospiti</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="reviews" id="recensioni">
-    <div class="section-inner">
-      <p class="section-label reveal">Recensioni</p>
-      <h2 class="section-title reveal delay-1">Amato da centinaia<br />di clienti</h2>
-      <div class="reviews-grid">
-        <div class="review-card reveal delay-1">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Perfetto per una cena romantica con vista spettacolare sul lago. Un'atmosfera davvero unica."</p>
-          <div class="review-author">
-            <div class="review-avatar">M</div>
-            <div><strong>Marco R.</strong><span>Milano</span></div>
-          </div>
-        </div>
-        <div class="review-card reveal delay-2">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Cibo freschissimo e servizio eccellente. Il pesce era di una qualità straordinaria. Torneremo presto!"</p>
-          <div class="review-author">
-            <div class="review-avatar">S</div>
-            <div><strong>Sofia B.</strong><span>Verona</span></div>
-          </div>
-        </div>
-        <div class="review-card reveal delay-3">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Tappa fissa ogni volta che veniamo a Sirmione. Il tramonto visto dalla terrazza è semplicemente magico."</p>
-          <div class="review-author">
-            <div class="review-avatar">L</div>
-            <div><strong>Luca e Anna T.</strong><span>Brescia</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="cta-center reveal">
-        <a href="https://www.thefork.it/ristorante/ristorante-alleria-r542047/recensioni" target="_blank" rel="noopener" class="btn btn-thefork">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          Leggi tutte le recensioni su TheFork
-        </a>
-        <a href="#prenota" class="btn btn-gold">Prenota il tuo tavolo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOTO DAL LAGO -->
-  <section class="foto-section" id="esperienza">
-    <div class="section-inner">
-      <p class="section-label reveal light">L'Esperienza</p>
-      <h2 class="section-title light reveal delay-1">Non è solo una cena,<br /><em>è un'esperienza</em></h2>
-    </div>
-    <div class="foto-mosaic">
-      <div class="foto-item foto-tall reveal delay-1">
-        <img src="images/terrazza.jpg" alt="Terrazza Alleria sul lago" loading="lazy" />
-        <div class="foto-label">🌅 La nostra terrazza</div>
-      </div>
-      <div class="foto-item reveal delay-2">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/a4/77/5a/caption.jpg?w=800&h=600&s=1" alt="Vista lago Alleria" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2b4a,#2d3f6e)';this.style.display='none'" />
-        <div class="foto-label">🌊 Vista sul Garda</div>
-      </div>
-      <div class="foto-item reveal delay-3">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/a4/77/59/caption.jpg?w=800&h=600&s=1" alt="Piatti Alleria" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#3d2b1a,#5c3d1e)';this.style.display='none'" />
-        <div class="foto-label">🍽️ I nostri piatti</div>
-      </div>
-      <div class="foto-item reveal delay-4">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/a4/77/57/caption.jpg?w=800&h=600&s=1" alt="Atmosfera Alleria" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#2b1a1a,#4a2d2d)';this.style.display='none'" />
-        <div class="foto-label">❤️ Atmosfera romantica</div>
-      </div>
-    </div>
-    <div class="exp-chips-row">
-      <div class="exp-chip reveal delay-1"><span>🌅</span> Terrazza direttamente sul Lago di Garda</div>
-      <div class="exp-chip reveal delay-2"><span>🍝</span> Cucina italiana e mediterranea autentica</div>
-      <div class="exp-chip reveal delay-3"><span>❤️</span> Perfetta per occasioni speciali e coppie</div>
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="menu-section" id="menu">
-    <div class="section-inner">
-      <p class="section-label reveal">Il Menu</p>
-      <h2 class="section-title reveal delay-1">Un assaggio di ciò<br />che ti aspetta</h2>
-
-      <div class="menu-tabs reveal delay-2">
-        <button class="tab-btn active" data-tab="antipasti">Antipasti</button>
-        <button class="tab-btn" data-tab="primi">Primi</button>
-        <button class="tab-btn" data-tab="secondi">Secondi</button>
-        <button class="tab-btn" data-tab="dolci">Dolci</button>
-        <button class="tab-btn" data-tab="drink">Drink</button>
-      </div>
-
-      <!-- ANTIPASTI -->
-      <div class="menu-panel active" id="tab-antipasti">
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Crudité di Pesce</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con focaccia e le sue salsine</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Gran Ventaglio di Crudité</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Pesce crudo per 2/3 persone</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cascata di Crudité di Mare</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Per 4/5/6 persone</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Zuppetta di Cozze, Vongole e Cannolicchi</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con crostoni di pane</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Gamberi in Tempura</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con acqua di pomodoro fermentato</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Capesante Scottate</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con acciughe, latticello di provola e riso crispy</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tartare di Tonno</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Insalatina di finocchio e maionese al nero di seppia</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tartare di Salmone</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con guacamole, lamponi e salsa di soia</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Caprese</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Pomodoro, burrata, basilico, acciughe e pane carasau</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tartare di Manzo</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con tarallo pugliese e yogurt profumato</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Polpo Brasato</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con crumble al peperoncino, scarola e confettura all'arancia</p></div>
-        </div>
-      </div>
-
-      <!-- PRIMI -->
-      <div class="menu-panel" id="tab-primi">
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spaghetti alle Vongole</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con bottarga di tonno</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Scialatiello all'Astice</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Pasta fresca con astice</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Calamarata Fresca</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con totani, melanzane, menta e pecorino</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Paccheri con Ricciola</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con datterino giallo e polvere di olive</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Spaghetto Pomodorino</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con stracciatella fresca e acciughe</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tortello alla Nerano</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con chips di zucchine e ricotta salata</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tagliatella al Tartufo</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Pasta fresca al tartufo</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Risotto Zucca e Guanciale</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con fonduta di pecorino</p></div>
-        </div>
-      </div>
-
-      <!-- SECONDI -->
-      <div class="menu-panel" id="tab-secondi">
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ricciola</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con scarola riccia, datterino giallo e chips di patata viola</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Branzino al Sale</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con scarola e patate al forno</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Orata alla Mediterranea</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Fresca, cucinata alla maniera mediterranea</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cuoppo Fritto ⭐</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Di calamari e gamberi</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Trancio di Salmone in Crosta</span><span class="menu-item-line"></span></div><p class="menu-item-desc">In crosta di mandorle, spinaci e salsa yogurt</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tagliata di Tonno</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con crema di cavolfiore, pomodorini confit e polvere di capperi</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Catalana d'Astice</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con verdurine a vivo e salsine</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Costata di Manzo</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con patate al forno</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tagliata di Entrecôte</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Con patate al forno e insalatina di rucola</p></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fiorentina ⭐</span><span class="menu-item-line"></span></div><p class="menu-item-desc">Fiorentina</p></div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Contorni — € 6</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><span class="menu-item-name">Patatine Fritte</span></div>
-            <div class="menu-item small"><span class="menu-item-name">Patate al Forno</span></div>
-            <div class="menu-item small"><span class="menu-item-name">Verdure Bollite</span></div>
-            <div class="menu-item small"><span class="menu-item-name">Verdure Grigliate</span></div>
-            <div class="menu-item small"><span class="menu-item-name">Insalata Mista</span></div>
-          </div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Per i Più Piccoli</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Penne al Pomodoro</span><span class="menu-item-price">€ 10</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Cotoletta Milanese con Patatine</span><span class="menu-item-price">€ 15</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DOLCI -->
-      <div class="menu-panel" id="tab-dolci">
-        <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Tiramisù</span><span class="menu-item-price">€ 7</span></div></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Panna Cotta</span><span class="menu-item-price">€ 7</span></div></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Crema Catalana</span><span class="menu-item-price">€ 7</span></div></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Delizia al Limone</span><span class="menu-item-price">€ 8.50</span></div></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Cheesecake</span><span class="menu-item-price">€ 8.50</span></div></div>
-          <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Dessert del Giorno</span><span class="menu-item-price">€ 8.50</span></div></div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Caffetteria</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Espresso</span><span class="menu-item-price">€ 2</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">€ 3</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Latte Macchiato</span><span class="menu-item-price">€ 4</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Cioccolata Calda</span><span class="menu-item-price">€ 4</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DRINK -->
-      <div class="menu-panel" id="tab-drink">
-        <div class="menu-subsection">
-          <h4>Aperitivi</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Spritz / Hugo / Aperol</span><span class="menu-item-price">€ 6</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Americano</span><span class="menu-item-price">€ 9</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Negroni</span><span class="menu-item-price">€ 9</span></div></div>
-          </div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Long Drink</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Mojito</span><span class="menu-item-price">€ 12</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Caipirinha / Caipiroska</span><span class="menu-item-price">€ 10</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Moscow Mule</span><span class="menu-item-price">€ 10</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Gin Tonic</span><span class="menu-item-price">€ 10</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Vodka Tonic / Lemon</span><span class="menu-item-price">€ 10</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Whisky Cola / Bacardi Cola</span><span class="menu-item-price">€ 10</span></div></div>
-          </div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Vini alla Mescita</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Lugana</span><span class="menu-item-price">€ 5</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Valpolicella</span><span class="menu-item-price">€ 5</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Chiaretto</span><span class="menu-item-price">€ 5</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Prosecco</span><span class="menu-item-price">€ 5</span></div></div>
-          </div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Birre</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Birra alla Spina 0.4lt</span><span class="menu-item-price">€ 6</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Heineken / Corona</span><span class="menu-item-price">€ 5</span></div></div>
-            <div class="menu-item small"><div class="menu-item-header"><span class="menu-item-name">Weizen</span><span class="menu-item-price">€ 7</span></div></div>
-          </div>
-        </div>
-        <div class="menu-subsection">
-          <h4>Analcolici &amp; Succhi — € 5</h4>
-          <div class="menu-items-grid small">
-            <div class="menu-item small"><span class="menu-item-name">Coca Cola / Fanta / Sprite / Schweppes</span></div>
-            <div class="menu-item small"><span class="menu-item-name">Succhi di frutta (pesca, pera, arancia, mela…)</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cta-center reveal">
-        <a href="#prenota" class="btn btn-gold">Prenota il tuo tavolo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING / LEAD CAPTURE -->
-  <section class="lead-section" id="prenota">
-    <div class="lead-inner">
-      <div class="lead-text reveal">
-        <p class="section-label light">Prenota</p>
-        <h2 class="section-title light">Rendi speciale la tua<br /><em>prossima cena</em></h2>
-        <p class="lead-sub">Prenota ora e vivi un'esperienza unica sul lago. Accedi a offerte esclusive e priorità di prenotazione.</p>
-        <ul class="lead-perks">
-          <li>✓ Conferma immediata</li>
-          <li>✓ Accesso a offerte riservate</li>
-          <li>✓ Priorità nella scelta del tavolo</li>
-        </ul>
-      </div>
-      <div class="lead-form reveal delay-2">
-        <form id="booking-form" novalidate>
-          <div class="form-group">
-            <label for="nome">Nome e Cognome</label>
-            <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="mario@esempio.it" required />
-          </div>
-          <div class="form-group">
-            <label for="telefono">Telefono / WhatsApp</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="+39 333 000 0000" />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="data">Data preferita</label>
-              <input type="date" id="data" name="data" />
+                <!-- Mobile menu button -->
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()" style="color: #F8F4EC;">
+                    <div class="w-6 h-0.5 mb-1.5 transition-all" style="background: #D4A853;" id="line1"></div>
+                    <div class="w-6 h-0.5 mb-1.5" style="background: #D4A853;" id="line2"></div>
+                    <div class="w-6 h-0.5 transition-all" style="background: #D4A853;" id="line3"></div>
+                </button>
             </div>
-            <div class="form-group">
-              <label for="ospiti">N° ospiti</label>
-              <select id="ospiti" name="ospiti">
-                <option value="2">2 persone</option>
-                <option value="3">3 persone</option>
-                <option value="4">4 persone</option>
-                <option value="5">5 persone</option>
-                <option value="6+">6+ persone</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="note">Note (occasione speciale, allergie…)</label>
-            <textarea id="note" name="note" rows="3" placeholder="Es. anniversario, compleanno, allergie..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-full">
-            Prenota il tuo tavolo
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <p class="form-note">
-            Oppure chiamaci: <a href="tel:+390309190099">+39 030 919009</a> ·
-            <a href="https://wa.me/390309190099" target="_blank">WhatsApp</a>
-          </p>
-        </form>
-        <div class="form-success" id="form-success">
-          <div class="success-icon">✓</div>
-          <h3>Grazie per la richiesta!</h3>
-          <p>Ti contatteremo entro poche ore per confermare la prenotazione. A presto al lago!</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- LOCATION -->
-  <section class="location-section" id="location">
-    <div class="section-inner">
-      <p class="section-label reveal">Dove siamo</p>
-      <h2 class="section-title reveal delay-1">Vieni a trovarci<br />a Sirmione</h2>
-      <div class="loc-grid">
-        <div class="loc-info reveal delay-1">
-          <div class="loc-item">
-            <div class="loc-icon">📍</div>
-            <div>
-              <strong>Indirizzo</strong>
-              <p>Via XXV Aprile, 51<br />Hotel Aurora<br />25019 Sirmione (BS), Italia</p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon">🕐</div>
-            <div>
-              <strong>Orari</strong>
-              <p>Pranzo: 12:00 – 14:30<br />Cena: 19:00 – 22:30</p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon">📞</div>
-            <div>
-              <strong>Telefono</strong>
-              <p><a href="tel:+390309190099">+39 030 919009</a></p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon">💬</div>
-            <div>
-              <strong>WhatsApp</strong>
-              <p>
-                <a href="https://wa.me/390309190099" target="_blank" class="whatsapp-inline">
-                  <svg viewBox="0 0 32 32" fill="currentColor" width="15" height="15"><path d="M16 1C7.7 1 1 7.7 1 16c0 2.7.7 5.2 2 7.4L1 31l7.9-2c2.1 1.1 4.5 1.8 7.1 1.8 8.3 0 15-6.7 15-15S24.3 1 16 1zm0 27.2c-2.4 0-4.7-.7-6.6-1.9l-.5-.3-4.7 1.2 1.3-4.5-.3-.5C4 21 3.2 18.6 3.2 16 3.2 8.9 8.9 3.2 16 3.2S28.8 8.9 28.8 16 23.1 28.2 16 28.2zm8.2-9.4c-.4-.2-2.5-1.2-2.9-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.4 1.7-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5-.1-.7-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.4 7 6.2.9.4 1.7.6 2.3.8.9.3 1.7.2 2.4.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5z"/></svg>
-                  Scrivici su WhatsApp
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="lg:hidden py-4 border-t hidden" style="border-color: rgba(212, 168, 83, 0.2);">
+                <button onclick="scrollToSection('experience')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
+                    Il Ristorante
+                </button>
+                <button onclick="scrollToSection('menu')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
+                    Cucina
+                </button>
+                <button onclick="scrollToSection('reviews')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
+                    Recensioni
+                </button>
+                <button onclick="scrollToSection('location')" class="block w-full text-left py-3 px-2" style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 15px; background: none; border: none;">
+                    Dove Siamo
+                </button>
+                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold block text-center mt-4 px-6 py-3 rounded-full text-sm">
+                    Prenota Ora
                 </a>
-              </p>
             </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon">🚗</div>
-            <div>
-              <strong>Come Arrivare</strong>
-              <p>Direttamente sul Lago di Garda, all'interno dell'Hotel Aurora. Raggiungibile facilmente da Brescia, Verona e Milano.</p>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-image: linear-gradient(to bottom, rgba(13,27,42,0.8) 0%, rgba(13,27,42,0.65) 40%, rgba(13,27,42,0.9) 100%), url('https://d2xsxph8kpxj0f.cloudfront.net/310519663510926374/YiDzDnnzr9XTR6ibHGPXKG/hero-image_f5df371a.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style="background: rgba(212, 168, 83, 0.15); border: 1px solid rgba(212, 168, 83, 0.4); opacity: 0; animation: fadeInUp 0.8s ease 0.2s forwards;">
+                <span style="color: #D4A853;">⭐</span>
+                <span style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">
+                    Ristorante Alleria · Top 10% su Tripadvisor · Sirmione
+                </span>
             </div>
-          </div>
-          <a href="https://maps.google.com/?q=Via+XXV+Aprile+51+Hotel+Aurora+Sirmione+BS" target="_blank" class="btn btn-outline">
-            Apri in Google Maps →
-          </a>
+
+            <!-- Headline -->
+            <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(2.8rem, 7vw, 5.5rem); color: #F8F4EC; line-height: 1.05; margin-bottom: 1.5rem; opacity: 0; animation: fadeInUp 0.9s ease 0.4s forwards;">
+                Cena sul Lago.<br>
+                <em style="color: #D4A853;">Sapori d'Italia.</em>
+            </h1>
+
+            <!-- Subheadline -->
+            <p style="font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(248, 244, 236, 0.85); margin-bottom: 2.5rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; opacity: 0; animation: fadeInUp 0.9s ease 0.6s forwards;">
+                Pesce fresco, viste romantiche e momenti indimenticabili a Sirmione sul Lago di Garda.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" style="opacity: 0; animation: fadeInUp 0.9s ease 0.8s forwards;">
+                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold animate-pulse-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2 justify-center">
+                    <span>📅</span>
+                    Prenota il Tuo Tavolo
+                </a>
+                <a href="https://www.tripadvisor.it/Restaurant_Review-g187842-d17781530-Reviews-Ristorante_Alleria_SIRMIONE-Sirmione_Province_of_Brescia_Lombardy.html" target="_blank" rel="noopener noreferrer" class="btn-outline-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2 justify-center">
+                    <span>⭐</span>
+                    Vedi le Recensioni
+                </a>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="mt-16 flex flex-col items-center gap-2" style="opacity: 0.6; animation: fadeIn 1s ease 1.2s forwards;">
+                <span style="color: #F8F4EC; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Nunito Sans', sans-serif;">
+                    Scopri di più
+                </span>
+                <span style="color: #D4A853; font-size: 20px; animation: bounce 2s infinite;">
+                    ↓
+                </span>
+            </div>
         </div>
-        <div class="loc-map reveal delay-2">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.27!2d10.6082!3d45.4938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47821b53e2b2e6b7%3A0xf2c84b01f7a43a34!2sHotel%20Aurora%20Sirmione!5e0!3m2!1sit!2sit!4v1720000000000!5m2!1sit!2sit"
-            width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="Hotel Aurora Sirmione — Ristorante Alleria">
-          </iframe>
+
+        <!-- Key benefits bar -->
+        <div class="absolute bottom-0 left-0 right-0" style="background: rgba(13, 27, 42, 0.85); backdrop-filter: blur(10px); border-top: 1px solid rgba(212, 168, 83, 0.2);">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-0">
+                    <div class="flex items-center gap-3 py-4 px-4" style="border-right: 1px solid rgba(212, 168, 83, 0.15);">
+                        <span class="text-xl">🌅</span>
+                        <span style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 400;">
+                            Vista Panoramica sul Lago
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 py-4 px-4" style="border-right: 1px solid rgba(212, 168, 83, 0.15);">
+                        <span class="text-xl">🐟</span>
+                        <span style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 400;">
+                            Pesce Fresco di Qualità
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 py-4 px-4" style="border-right: 1px solid rgba(212, 168, 83, 0.15);">
+                        <span class="text-xl">🍷</span>
+                        <span style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 400;">
+                            Cene Romantiche
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 py-4 px-4">
+                        <span class="text-xl">⭐</span>
+                        <span style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 13px; font-weight: 400;">
+                            4.5/5 · 470+ Recensioni
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FINAL CTA -->
-  <section class="final-cta">
-    <div class="final-inner">
-      <p class="section-label light reveal">Non aspettare</p>
-      <h2 class="section-title light reveal delay-1">Rendi speciale la tua<br /><em>prossima cena</em></h2>
-      <p class="final-sub reveal delay-2">Prenota ora e vivi un'esperienza unica sul Lago di Garda</p>
-      <a href="#prenota" class="btn btn-gold reveal delay-3">
-        Prenota il tuo tavolo
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </section>
+    <!-- Social Proof Section -->
+    <section id="reviews" style="background: #0D1B2A; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <p style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    Cosa dicono i nostri ospiti
+                </p>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem); color: #F8F4EC; line-height: 1.1;">
+                    Amato da centinaia di ospiti
+                </h2>
+                <div class="gold-divider"></div>
+            </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-name">Alleria</span>
-        <span class="logo-sub">Ristorante · Sirmione</span>
-      </div>
-      <div class="footer-links">
-        <a href="#recensioni">Recensioni</a>
-        <a href="#menu">Menu</a>
-        <a href="#prenota">Prenota</a>
-        <a href="#location">Location</a>
-      </div>
-      <p class="footer-copy">© 2025 Ristorante Alleria · Via XXV Aprile 51, Hotel Aurora · 25019 Sirmione (BS)</p>
-    </div>
-  </footer>
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mb-16 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(1.8rem, 4vw, 3rem); color: #D4A853; line-height: 1;">
+                        4.5/5
+                    </div>
+                    <div style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-size: 13px; margin-top: 0.5rem;">
+                        Valutazione Media
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(1.8rem, 4vw, 3rem); color: #D4A853; line-height: 1;">
+                        470+
+                    </div>
+                    <div style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-size: 13px; margin-top: 0.5rem;">
+                        Recensioni
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: clamp(1.8rem, 4vw, 3rem); color: #D4A853; line-height: 1;">
+                        Top 10%
+                    </div>
+                    <div style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-size: 13px; margin-top: 0.5rem;">
+                        Tripadvisor
+                    </div>
+                </div>
+            </div>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/390309190099" class="whatsapp-float" target="_blank" aria-label="Contattaci su WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor" width="28" height="28">
-      <path d="M16 1C7.7 1 1 7.7 1 16c0 2.7.7 5.2 2 7.4L1 31l7.9-2c2.1 1.1 4.5 1.8 7.1 1.8 8.3 0 15-6.7 15-15S24.3 1 16 1zm0 27.2c-2.4 0-4.7-.7-6.6-1.9l-.5-.3-4.7 1.2 1.3-4.5-.3-.5C4 21 3.2 18.6 3.2 16 3.2 8.9 8.9 3.2 16 3.2S28.8 8.9 28.8 16 23.1 28.2 16 28.2zm8.2-9.4c-.4-.2-2.5-1.2-2.9-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.4 1.7-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5-.1-.7-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.4 7 6.2.9.4 1.7.6 2.3.8.9.3 1.7.2 2.4.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5z"/>
-    </svg>
-  </a>
+            <!-- Review cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="review-card p-6 rounded-2xl">
+                    <!-- Stars -->
+                    <div class="flex gap-1 mb-4">
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                    </div>
+                    <p style="color: rgba(248, 244, 236, 0.85); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.6; margin-bottom: 1.25rem;">
+                        "Atmosfera romantica con una vista mozzafiato sul lago. Una serata indimenticabile."
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(212, 168, 83, 0.2); color: #D4A853; font-family: 'Cormorant Garamond', serif;">
+                            M
+                        </div>
+                        <div>
+                            <div style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 600;">Marco R.</div>
+                            <div style="color: rgba(248, 244, 236, 0.5); font-family: 'Nunito Sans', sans-serif; font-size: 12px;">Milano</div>
+                        </div>
+                    </div>
+                </div>
 
-  <script src="js/main.js"></script>
+                <div class="review-card p-6 rounded-2xl">
+                    <!-- Stars -->
+                    <div class="flex gap-1 mb-4">
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                    </div>
+                    <p style="color: rgba(248, 244, 236, 0.85); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.6; margin-bottom: 1.25rem;">
+                        "Sapori freschi e autentici, servizio attento e premuroso. Torneremo sicuramente!"
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(212, 168, 83, 0.2); color: #D4A853; font-family: 'Cormorant Garamond', serif;">
+                            S
+                        </div>
+                        <div>
+                            <div style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 600;">Sophie L.</div>
+                            <div style="color: rgba(248, 244, 236, 0.5); font-family: 'Nunito Sans', sans-serif; font-size: 12px;">Parigi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card p-6 rounded-2xl">
+                    <!-- Stars -->
+                    <div class="flex gap-1 mb-4">
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                        <span style="color: #D4A853;">⭐</span>
+                    </div>
+                    <p style="color: rgba(248, 244, 236, 0.85); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.6; margin-bottom: 1.25rem;">
+                        "Il posto perfetto per una cena speciale al tramonto. Il pesce era eccezionale."
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background: rgba(212, 168, 83, 0.2); color: #D4A853; font-family: 'Cormorant Garamond', serif;">
+                            T
+                        </div>
+                        <div>
+                            <div style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 600;">Thomas K.</div>
+                            <div style="color: rgba(248, 244, 236, 0.5); font-family: 'Nunito Sans', sans-serif; font-size: 12px;">Monaco</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tripadvisor badge -->
+            <div class="text-center">
+                <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full" style="background: rgba(212, 168, 83, 0.1); border: 1px solid rgba(212, 168, 83, 0.3);">
+                    <span style="color: #D4A853;">🏆</span>
+                    <span style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 600;">
+                        Tripadvisor Travelers' Choice · Top 10% in Sirmione
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <a href="https://www.tripadvisor.it/Restaurant_Review-g187842-d17781530-Reviews-Ristorante_Alleria_SIRMIONE-Sirmione_Province_of_Brescia_Lombardy.html" target="_blank" rel="noopener noreferrer" class="btn-outline-gold px-6 py-3 rounded-full text-sm inline-flex items-center gap-2">
+                        <span>🔗</span>
+                        Leggi tutte le recensioni su Tripadvisor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background: #F8F4EC; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: text -->
+                <div>
+                    <p style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;">
+                        La nostra storia
+                    </p>
+                    <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem); color: #0D1B2A; line-height: 1.1; margin-bottom: 1.5rem;">
+                        Un'esperienza culinaria,<br><em style="color: #D4A853;">non solo un pasto</em>
+                    </h2>
+                    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, #D4A853, transparent); margin-bottom: 2rem;"></div>
+                    <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Al Ristorante Alleria, ogni cena è un viaggio sensoriale. Seduti sulla riva del Lago di Garda, con la brezza lacustre e i colori del tramonto, vi aspettano sapori autentici della cucina italiana e mediterranea, con un focus sul pesce fresco di giornata.
+                    </p>
+                    <p style="color: #3D3D3D; font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem;">
+                        Che sia una cena romantica per due o una serata speciale in famiglia, il nostro team si dedica a rendere ogni momento indimenticabile.
+                    </p>
+
+                    <!-- Feature list -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🌅</span>
+                            <span style="color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 400;">Vista panoramica sul lago</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🐟</span>
+                            <span style="color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 400;">Pesce fresco ogni giorno</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🍷</span>
+                            <span style="color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 400;">Selezione vini italiani</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">💑</span>
+                            <span style="color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-size: 14px; font-weight: 400;">Atmosfera romantica</span>
+                        </div>
+                    </div>
+
+                    <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                        <span>📅</span>
+                        Prenota il Tuo Tavolo
+                    </a>
+                </div>
+
+                <!-- Right: image -->
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden" style="aspect-ratio: 4/5;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663510926374/YiDzDnnzr9XTR6ibHGPXKG/experience-image_d239fd4b.jpg" alt="Vista romantica sul Lago di Garda dal Ristorante Alleria" class="w-full h-full object-cover">
+                        <!-- Overlay badge -->
+                        <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl" style="background: rgba(13, 27, 42, 0.85); backdrop-filter: blur(10px); border: 1px solid rgba(212, 168, 83, 0.3);">
+                            <div class="flex items-center gap-3">
+                                <div class="flex gap-0.5">
+                                    <span style="color: #D4A853;">⭐</span>
+                                    <span style="color: #D4A853;">⭐</span>
+                                    <span style="color: #D4A853;">⭐</span>
+                                    <span style="color: #D4A853;">⭐</span>
+                                    <span style="color: #D4A853;">⭐</span>
+                                </div>
+                                <span style="color: #F8F4EC; font-family: 'Nunito Sans', sans-serif; font-size: 13px;">
+                                    4.5/5 · 470+ recensioni verificate
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-20" style="background: radial-gradient(circle, #D4A853, transparent);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" style="background: #0D1B2A; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <p style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    I nostri piatti
+                </p>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem); color: #F8F4EC; line-height: 1.1;">
+                    Cucina Italiana & Mediterranea
+                </h2>
+                <div class="gold-divider"></div>
+                <p style="color: rgba(248, 244, 236, 0.65); font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 1rem; max-width: 550px; margin: 0 auto; line-height: 1.7;">
+                    Pesce fresco selezionato ogni mattina, preparato con ricette tradizionali italiane e un tocco di creatività mediterranea.
+                </p>
+            </div>
+
+            <!-- Dish cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="dish-card rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                    <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663510926374/YiDzDnnzr9XTR6ibHGPXKG/alleria-seafood-dqc2qFAKdcibwebeMyJaJL.webp" alt="Branzino alla Griglia" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs" style="background: rgba(212, 168, 83, 0.9); color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-weight: 700; letter-spacing: 0.05em;">
+                            Specialità della Casa
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.4rem; color: #F8F4EC; margin-bottom: 0.5rem;">
+                            Branzino alla Griglia
+                        </h3>
+                        <p style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 0.9rem; line-height: 1.6;">
+                            Branzino fresco del giorno, grigliato con olio extravergine, capperi, pomodorini e limone
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dish-card rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                    <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663510926374/YiDzDnnzr9XTR6ibHGPXKG/alleria-pasta-KbVyvJFcos8NJXoRQT9UFG.webp" alt="Spaghetti alle Vongole" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs" style="background: rgba(212, 168, 83, 0.9); color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-weight: 700; letter-spacing: 0.05em;">
+                            Il più amato
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.4rem; color: #F8F4EC; margin-bottom: 0.5rem;">
+                            Spaghetti alle Vongole
+                        </h3>
+                        <p style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 0.9rem; line-height: 1.6;">
+                            Spaghetti con vongole fresche, cozze, pomodorini, aglio e prezzemolo in salsa di vino bianco
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dish-card rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212, 168, 83, 0.15);">
+                    <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Frittura di Calamari e Gamberi" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs" style="background: rgba(212, 168, 83, 0.9); color: #0D1B2A; font-family: 'Nunito Sans', sans-serif; font-weight: 700; letter-spacing: 0.05em;">
+                            Antipasto
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.4rem; color: #F8F4EC; margin-bottom: 0.5rem;">
+                            Frittura di Calamari e Gamberi
+                        </h3>
+                        <p style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-weight: 300; font-size: 0.9rem; line-height: 1.6;">
+                            Calamari e gamberi freschissimi in pastella leggera, serviti con salsa tartara e limone
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                    <span>📅</span>
+                    Prenota il Tuo Tavolo Ora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" style="background: #F8F4EC; padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <p style="color: #D4A853; font-family: 'Nunito Sans', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    Dove trovarci
+                </p>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2rem, 5vw, 3.5rem); color: #0D1B2A; line-height: 1.1;">
+                    Sirmione, cuore del Lago di Garda
+                </h2>
+                <div class="gold-divider" style="background: linear-gradient(90deg, #D4A853, transparent);"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Map placeholder -->
+                <div class="rounded-2xl overflow-hidden" style="height: 400px; background: linear-gradient(135deg, #0D1B2A, #4A9BAD); display: flex; align-items: center; justify-content: center;">
+                    <div class="text-center text-white">
+                        <div style="font-size: 48px; margin-bottom: 1rem;">📍</div>
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem;">Ristorante Alleria</h3>
+                        <p style="margin-bottom: 1.5rem;">Sirmione, Lago di Garda</p>
+                        <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-6 py-3 rounded-full text-sm">
+                            Apri in Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact info -->
+                <div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #0D1B2A; margin-bottom: 2rem;">
+                        Informazioni & Contatti
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span style="color: #D4A853; font-size: 20px;">📍</span>
+                            <div>
+                                <div style="color: #0D1B2A; font-weight: 600; margin-bottom: 0.25rem;">Indirizzo</div>
+                                <div style="color: #3D3D3D;">Ristorante Alleria, Sirmione (BS)</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <span style="color: #D4A853; font-size: 20px;">📞</span>
+                            <div>
+                                <div style="color: #0D1B2A; font-weight: 600; margin-bottom: 0.25rem;">Telefono</div>
+                                <div style="color: #3D3D3D;">+39 030 990 6131</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <span style="color: #D4A853; font-size: 20px;">🕐</span>
+                            <div>
+                                <div style="color: #0D1B2A; font-weight: 600; margin-bottom: 0.25rem;">Orari</div>
+                                <div style="color: #3D3D3D; line-height: 1.6;">
+                                    Martedì-Domenica: 12:00-14:30, 18:30-22:30<br>
+                                    Lunedì: Chiuso
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <span style="color: #D4A853; font-size: 20px;">💳</span>
+                            <div>
+                                <div style="color: #0D1B2A; font-weight: 600; margin-bottom: 0.25rem;">Pagamenti</div>
+                                <div style="color: #3D3D3D;">Carte di credito, contanti, bancomat</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                            <span>📅</span>
+                            Prenota Ora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #0D1B2A; padding: 3rem 0 2rem; border-top: 1px solid rgba(212, 168, 83, 0.2);">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background: linear-gradient(135deg, #D4A853, #A8843F); color: #0D1B2A; font-family: 'Cormorant Garamond', serif; font-size: 16px;">
+                        RA
+                    </div>
+                    <div>
+                        <div style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 18px; color: #F8F4EC; line-height: 1;">
+                            Ristorante Alleria
+                        </div>
+                        <div style="font-size: 10px; color: #D4A853; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Nunito Sans', sans-serif;">
+                            Sirmione, Lago di Garda
+                        </div>
+                    </div>
+                </div>
+
+                <p style="color: rgba(248, 244, 236, 0.6); font-family: 'Nunito Sans', sans-serif; font-size: 14px; margin-bottom: 2rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.6;">
+                    Dal 1985, portiamo sulla tavola i sapori autentici del Lago di Garda con passione, tradizione e amore per l'ospitalità italiana.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
+                    <a href="https://www.google.it/maps/place/RISTORANTE+ALLERIA/@45.4813357,10.6066305,17z/data=!3m2!4b1!5s0x4781eb53638a5731:0x1e4f22b31f2636e8!4m6!3m5!1s0x4781ebf18ec574bb:0xc75716522752595e!8m2!3d45.4813357!4d10.6092054!16s%2Fg%2F11fkcc_yx8?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-outline-gold px-6 py-2.5 rounded-full text-sm">
+                        Prenota un Tavolo
+                    </a>
+                    <a href="tel:+390309906131" class="btn-outline-gold px-6 py-2.5 rounded-full text-sm">
+                        Chiama Ora
+                    </a>
+                </div>
+
+                <div style="color: rgba(248, 244, 236, 0.4); font-size: 12px; font-family: 'Nunito Sans', sans-serif;">
+                    © 2024 Ristorante Alleria Sirmione. Tutti i diritti riservati. | P.IVA: [Numero] | 
+                    <a href="#" style="color: #D4A853; text-decoration: none;">Privacy</a> | 
+                    <a href="#" style="color: #D4A853; text-decoration: none;">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animations -->
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                navbar.style.background = 'rgba(13, 27, 42, 0.97)';
+                navbar.style.backdropFilter = 'blur(12px)';
+                navbar.style.borderBottom = '1px solid rgba(212, 168, 83, 0.2)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.borderBottom = 'none';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+            
+            mobileMenu.classList.toggle('hidden');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                line1.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            } else {
+                line1.style.transform = 'rotate(45deg) translateY(8px)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translateY(-8px)';
+            }
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.review-card, .dish-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.7s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
